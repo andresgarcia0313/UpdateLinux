@@ -1,0 +1,36 @@
+Instalar:
+
+1. Abre la terminal en tu sistema operativo Linux.
+
+2. Cambia al directorio donde se encuentra el script "instalar.sh". Puedes usar el comando cd seguido de la ruta del directorio. Por ejemplo, si el script está en el directorio "/home/tu_usuario/scripts", debes ejecutar el siguiente comando:
+
+cd /home/tu_usuario/scripts
+
+3. sh instalar.sh
+
+
+Ejecutar sin instalar:
+
+1. Abre la terminal en tu sistema operativo Linux.
+
+2. Cambia al directorio donde se encuentra el script "actualizar.sh". Puedes usar el comando cd seguido de la ruta del directorio. Por ejemplo, si el script está en el directorio "/home/tu_usuario/scripts", debes ejecutar el siguiente comando:
+
+cd /home/tu_usuario/scripts
+
+3. Asegúrate de que el script "actualizar.sh" tenga permisos de ejecución. Puedes verificarlo ejecutando el siguiente comando:
+
+ls -l actualizar.sh
+
+Asegúrate de que haya una "x" en los permisos del archivo, lo que indica que tiene permisos de ejecución. Si no tiene permisos de ejecución, puedes otorgarlos usando el siguiente comando:
+
+chmod +x actualizar.sh
+
+4. Finalmente, para ejecutar el script, simplemente escribe el nombre del script precedido por "./". Por ejemplo, si el script se llama "actualizar.sh", ejecuta el siguiente comando:
+
+./actualizar.sh
+
+Con estos pasos, deberías poder ejecutar el script "actualizar.sh" desde la consola de Linux estando en el directorio correcto.
+
+5. Otra forma de ejecutar el archivo sin darle permisos es: 
+
+sh actualizar.sh
