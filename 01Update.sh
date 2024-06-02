@@ -2,7 +2,6 @@
 # Este código actualiza programas en computadoras con Linux, asegurando mejoras
 # y correcciones de errores. 🚀
 
-
 echo "Verificar la conexión a internet"
 if ping -c 1 google.com > /dev/null 2>&1; then
     echo "Conexión a Internet detectada. Comenzando la actualización..."
@@ -36,8 +35,7 @@ sudo aptitude -y safe-upgrade
 
 
 echo "Actualización del sistema completo"
-sudo do-release-upgrade -c -f -q
-
+sudo do-release-upgrade
 
 echo "Configuración adicional y limpieza"
 sudo dpkg --configure -a
@@ -46,14 +44,26 @@ sudo apt autoclean
 sudo apt clean
 
 
-echo "Reiniciar el sistema para aplicar los cambios"
-echo "Actualización completada. ¿Deseas reiniciar el sistema ahora? (s/n):"
-read -r reiniciar
-if [ "$reiniciar" == "s" ]; then
-    echo "Reiniciando el sistema..."
-    sudo reboot
-else
-    echo "No se reiniciará el sistema. Recuerda hacerlo más tarde para aplicar los cambios."
-fi
+# echo "Reiniciar el sistema para aplicar los cambios"
+# echo "Actualización completada. ¿Deseas reiniciar el sistema ahora? (s/n):"
+# read -r reiniciar
+# if [ "$reiniciar" == "s" ]; then
+#     echo "Reiniciando el sistema..."
+#     sudo reboot
+# else
+#     echo "No se reiniciará el sistema. Recuerda hacerlo más tarde para aplicar los cambios."
+# fi
 
-#sudo reboot
+# Obtiene la ruta absoluta del script
+SCRIPT_PATH="$(cd "$(dirname "$0")" && pwd)"
+
+# Verifica si el alias ya está agregado
+if ! grep -q "alias updateLinux='$SCRIPT_PATH/01Update.sh'" ~/.bashrc; then
+    # Si no está agregado, entonces agrega el alias
+    echo "alias updateLinux='$SCRIPT_PATH/01Update.sh'" >> ~/.bashrc
+    echo "Alias 'updateLinux' agregado al archivo .bashrc."
+    echo "Ahora puedes ejecutar 'updateLinux' desde cualquier lugar en tu terminal."
+else
+    # Si ya está agregado, muestra un mensaje indicando que ya existe
+    echo "El alias 'updateLinux' ya está presente en el archivo .bashrc."
+fi
